@@ -1,5 +1,5 @@
 lib = File.expand_path('lib', __dir__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+$:.unshift(lib) unless $:.include?(lib)
 require 'ssh-exporter/version'
 
 Gem::Specification.new do |s|
@@ -19,5 +19,4 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency 'prometheus-client', '~> 4.0.0'
   s.add_runtime_dependency 'thin', '~> 1.8.1'
-  s.add_development_dependency 'rake'
 end

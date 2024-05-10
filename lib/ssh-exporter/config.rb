@@ -42,7 +42,7 @@ module SshExporter
     def initialize(path)
       data = JSON.parse(File.read(path))
 
-      @hosts = Hash[data['hosts'].map do |k, v|
+      @hosts = data['hosts'].to_h do |k, v|
         h = Host.new(
           name: k,
           alias_name: v.fetch('alias'),
@@ -53,7 +53,7 @@ module SshExporter
           timeout: v.fetch('timeout', 30)
         )
         [h.name, h]
-      end]
+      end
     end
   end
 end

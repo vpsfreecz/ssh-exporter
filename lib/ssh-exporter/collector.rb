@@ -93,7 +93,7 @@ module SshExporter
       @check_seconds.set(t2 - t1, labels:)
 
       if success
-        load_averages = output.split(' ')[0..2].map(&:to_f)
+        load_averages = output.split[0..2].map(&:to_f)
 
         @load1.set(load_averages[0], labels:)
         @load5.set(load_averages[1], labels:)
