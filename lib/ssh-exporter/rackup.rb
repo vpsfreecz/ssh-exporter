@@ -11,15 +11,15 @@ module SshExporter
 
       collector = SshExporter::Collector.new(
         Config.new(config_file),
-        registry,
+        registry
       )
       collector.start
 
       Rack::Builder.app do
         use Rack::Deflater
-        use Prometheus::Middleware::Exporter, {registry: registry}
+        use Prometheus::Middleware::Exporter, { registry: }
 
-        run ->(_) { [200, {'Content-Type' => 'text/html'}, ['OK']] }
+        run ->(_) { [200, { 'Content-Type' => 'text/html' }, ['OK']] }
       end
     end
   end

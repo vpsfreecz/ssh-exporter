@@ -50,7 +50,7 @@ module SshExporter
           user: v.fetch('user'),
           private_key_file: v.fetch('private_key_file'),
           interval: v.fetch('interval', 60),
-          timeout: v.fetch('timeout', 30),
+          timeout: v.fetch('timeout', 30)
         )
         [h.name, h]
       end]
